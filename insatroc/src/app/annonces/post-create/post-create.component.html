@@ -1,0 +1,21 @@
+<p>post-create works!</p>
+<form (submit)="SavePost(userForm)" #userForm="ngForm">
+    <input type="text"
+    placeholder="Titre de l'annonce"
+    ngModel
+    name="title"
+    required
+    >
+    <textarea
+    placeholder="Description de l'annonce"
+    ngModel
+    name="Description"
+    required
+    rows="20"
+
+    >
+    </textarea>
+    <button
+    type="submit"
+    >Sauvegarder l'annonce !</button>
+</form>
