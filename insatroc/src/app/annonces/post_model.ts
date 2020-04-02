@@ -1,10 +1,8 @@
-export class PostModel {
+export interface PostModel {
 
-    constructor(
-      public _id: string,
-      public title: string,
-      public description: string,
-      public category: string
-    ) {  }
+      _id: string;
+      title: string;
+      description: string;
+      category: string;
+}
   
-  }

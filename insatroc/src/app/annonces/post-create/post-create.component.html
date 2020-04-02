@@ -1,30 +1,56 @@
-<form (submit)="SavePost(userForm)" #userForm="ngForm">
-    <input type="text"
-    placeholder="Titre de l'annonce"
-    ngModel
-    name="title"
-    required
-    >
-    <textarea
-    placeholder="Description de l'annonce"
-    ngModel
-    name="Description"
-    required
-    rows="20"
+<mat-card>
+    <form (submit)="SavePost(userForm)" #userForm="ngForm">
+        <mat-form-field>
+            <mat-placeholder class="placeholder">titre de l'annonce</mat-placeholder>
 
-    >
-    </textarea>
-    <select
-    name="category"
-    size="1"
-    ngModel
-    >
+            <input matInput type="text"
+            ngModel
+            name="title"
+            required
+            #prtitle="ngModel"
+            >
+            <mat-error *ngIf="prtitle.invalid">Veuillez saisir un titre</mat-error>
+        </mat-form-field>
 
-        <option>catégorie 1
-        <option selected>catégorie 2
-        <option>catégorie 3
-    </select>
-    <button
-    type="submit"
-    >Sauvegarder l'annonce !</button>
-</form>
+
+        <mat-form-field> 
+            <mat-placeholder class="placeholder">Description de l'annonce</mat-placeholder>
+            <textarea matInput
+            ngModel
+            #prdescription="ngModel"
+            name="Description"
+            required
+            rows="20"
+
+            >
+            </textarea>
+            <mat-error *ngIf="prdescription.invalid">Veullez saisir une description de l'annonce</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="Test1">
+        <mat-label>Catégorie</mat-label>
+        <mat-select 
+        required
+        >
+            <mat-option value="catégorie1">catégorie1</mat-option>
+            <mat-option value="catégorie2">catégorie2</mat-option>
+        </mat-select>
+        </mat-form-field>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-form-field appareance="fill" class="Test1">
+            <mat-label>Prix</mat-label>
+            <input matInput
+            name="price"
+            ngModel
+            type="number"
+            >
+            <span matSufix>      €</span>
+        </mat-form-field>
+        <mat-card-actions>
+        <button
+        mat-button
+        type="submit"
+        >Sauvegarder l'annonce !</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

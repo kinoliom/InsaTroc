@@ -1,0 +1,8 @@
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: crimson;
+    color: darkgrey;
+}

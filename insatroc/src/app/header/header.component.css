@@ -12,3 +12,8 @@ mat-sidenav {
 }
 mat-toolbar {
 }
+@media (max-width: 768px) {
+    #sidenav {
+        display: none;
+    }
+}

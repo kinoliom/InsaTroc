@@ -16,6 +16,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+import { Headerv2Component } from './headerv2/headerv2.component';
 
 
 
@@ -24,7 +26,8 @@ import { MatListModule } from '@angular/material/list';
     AppComponent,
     PostCreateComponent,
     PostViewerComponent,
-    HeaderComponent
+    HeaderComponent,
+    Headerv2Component
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatSelectModule,
     MatButtonToggleModule,
     MatIconModule,
     MatListModule

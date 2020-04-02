@@ -16,7 +16,11 @@ export class PostCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   SavePost (form: NgForm) {
-    this.Announces.push(form.value.title,form.value.Description,form.value.category);
+    if (form.invalid) {
+      console.log("Invalid form");
+      return;
+    }
+    this.Announces.push(form.value.title,form.value.Description,form.value.category,form.value.price);
     console.log(this.Announces);
   }
 
