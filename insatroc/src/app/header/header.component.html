@@ -1,23 +1,13 @@
-<mat-toolbar>
-    <mat-toolbar-row>
-
-    
-    <button mat-icon-button>
-        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-    </button>
-    <h1>Menu ? </h1>
-    </mat-toolbar-row>
-</mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')">Start</mat-sidenav>
     <mat-nav-list>
         <a>Link1</a>
         <a>Link2</a>
-        <h2>??</h2>
+        <h2>Blablabla</h2>
     </mat-nav-list>
     <mat-sidenav-content>
         Main
-        
+
         <mat-button-toggle (click)="sidenav.toggle()">
             <mat-icon>format_align_center</mat-icon>
         </mat-button-toggle>

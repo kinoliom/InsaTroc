@@ -8,8 +8,16 @@ import { PostModel } from '../post_model';
 })
 export class PostViewerComponent implements OnInit {
   posts : PostModel[] = [];
+  sidetoggle = false;
+  value;
+  min = 0;
+  max = 300;
 
   constructor() { }
+
+  log (status) {
+    console.log(status)
+  }
 
   ngOnInit(): void {
   }

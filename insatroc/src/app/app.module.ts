@@ -16,6 +16,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { HomepageComponent } from './homepage/homepage.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -24,7 +29,8 @@ import { MatListModule } from '@angular/material/list';
     AppComponent,
     PostCreateComponent,
     PostViewerComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +44,12 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatButtonToggleModule,
     MatIconModule,
-    MatListModule
-    
+    MatListModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSliderModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,76 @@
-<p>post-viewer works!</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')">
+
+    <mat-nav-list>
+      <span>Trier par</span>
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Choisir" name="category" size="1" ngModel required>
+          <mat-option value="prix-croissant">Prix croissant</mat-option>
+          <mat-option value="prix-decroissant">Prix décroissant</mat-option>
+          <mat-option value="date">Date</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <span>Filtrer par</span>
+      <mat-form-field appearance="standard">
+        <mat-select placeholder="Catégorie" name="category" size="1" ngModel required>
+          <mat-option value="chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
+          <mat-option value="kitchen"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
+          <mat-option value="sdb"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
+          <mat-option value="bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
+          <mat-option value="loisirs"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
+          <mat-option value="autres"><mat-icon>category</mat-icon>Autres</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Prix</mat-label>
+        <input matInput type="number" [(ngModel)]="value">
+      </mat-form-field>
+      <br>
+      <span>{{min}}      </span>
+      <mat-slider
+        class="example-margin"
+        [max]="max"
+        [min]="min"
+        [step]=1
+        [thumbLabel]=1
+        [(ngModel)]="value">
+      </mat-slider>
+      <span>{{max}}</span>
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="disabled">   <!--primary, accent or warn-->
+      <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+      </button>
+      <h2>Toutes les annonces</h2>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
