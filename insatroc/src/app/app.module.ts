@@ -21,8 +21,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import {ReactiveFormsModule} from '@angular/forms';
+// import {FormControl, Validators} from '@angular/forms';
+
 
 import {HttpClientModule} from '@angular/common/http';
+import { ConnectionComponent } from './connection/connection.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 
 
@@ -32,7 +37,9 @@ import {HttpClientModule} from '@angular/common/http';
     PostCreateComponent,
     PostViewerComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    ConnectionComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,11 @@ import {HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
+    // FormControl,
+    // Validators
+    // ReactiveFormsModule
 
   ],
   providers: [],

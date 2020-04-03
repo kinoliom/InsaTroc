@@ -4,13 +4,11 @@
     <br>
     <span>Titre : </span>
     <mat-form-field appearance="outline">
-      <mat-label>Titre</mat-label>
       <input matInput name="title" size="1" ngModel required>
     </mat-form-field>
   <br>
     <span>Catégorie : </span>
     <mat-form-field appearance="outline">
-      <mat-label>Catégorie</mat-label>
       <mat-select name="category" size="1" ngModel required>
         <mat-option value="chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
         <mat-option value="kitchen"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
@@ -23,14 +21,12 @@
     <br>
     <span>Prix : </span>
     <mat-form-field appearance="outline">
-      <mat-label>Prix</mat-label>
       <input matInput name="price" size="1" ngModel required>
       <span matSuffix><mat-icon>euro_symbol</mat-icon></span>
     </mat-form-field>
 <br>
     <span>Description : </span>
     <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
       <textarea matInput ngModel name="description" required rows="1" rows="10"></textarea>
     </mat-form-field>
 

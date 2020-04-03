@@ -1,0 +1,9 @@
+post-create.component.html :
+suppression des mat-label
+
+Ajout du composant connexion.component
+==> à rajouter dans app-routing.module.ts
+==> à rajouter dans app.module.ts
+
+Dans app.component.html (ou dans header (là où il y a la barre de menu)) :
+ajouter routerLink="/connexion" au bouton Connexion
