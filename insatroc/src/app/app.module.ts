@@ -23,6 +23,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 
 import {HttpClientModule} from '@angular/common/http';
+import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -32,7 +35,8 @@ import {HttpClientModule} from '@angular/common/http';
     PostCreateComponent,
     PostViewerComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    PostCreateAltComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,
