@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatMenuModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
 
   ],
   providers: [],
