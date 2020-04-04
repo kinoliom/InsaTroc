@@ -28,6 +28,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ConnectionComponent } from './connection/connection.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -37,9 +40,10 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     PostCreateComponent,
     PostViewerComponent,
     HeaderComponent,
-    HomepageComponent,
     ConnectionComponent,
     CreateAccountComponent
+    HomepageComponent,
+    PostCreateAltComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,

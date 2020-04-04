@@ -7,9 +7,11 @@ import { PostViewerComponent } from './annonces/post-viewer/post-viewer.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { CreateAccountComponent } from './create-account/create-account.component'
+import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
 
 const routes: Routes = [
   // {path: '', component: AppComponent},
+  {path: 'deposer-une-annonce-alt', component: PostCreateAltComponent},
   {path: 'deposer-une-annonce', component: PostCreateComponent},
   {path: 'toutes-les-annonces', component: PostViewerComponent},
   {path: '', component: HomepageComponent},

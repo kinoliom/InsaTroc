@@ -1,15 +1,34 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')">Start</mat-sidenav>
-    <mat-nav-list>
-        <a>Link1</a>
-        <a>Link2</a>
-        <h2>Blablabla</h2>
-    </mat-nav-list>
-    <mat-sidenav-content>
-        Main
+<mat-toolbar color="primary">   <!--primary, accent or warn-->
+  <span>
+    <mat-icon>eco</mat-icon>
+  </span>
+  <button mat-button>
+      <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+      <h1 routerLink="/">INSA'Troc</h1>
+  </button>
+  <!-- <span class="fill-remaining-space"></span> -->
+  <span class="spacer"></span>
+  <button mat-button routerLink="/deposer-une-annonce-alt">
+    <mat-icon>build</mat-icon>
+    Déposer une annonce(alt)
+  </button>
+  <button mat-button routerLink="/deposer-une-annonce">
+      <mat-icon>add_circle</mat-icon>
+      Déposer une annonce
+  </button>
+  <button mat-button routerLink="/toutes-les-annonces">
+    <mat-icon>dns</mat-icon>
+    Voir toutes les annonces
+  </button>
+  <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+  <input mat-clearable-input placeholder="Rechercher une annonce">
 
-        <mat-button-toggle (click)="sidenav.toggle()">
-            <mat-icon>format_align_center</mat-icon>
-        </mat-button-toggle>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+  <button mat-button>
+    <mat-icon>account_circle</mat-icon>
+    Connexion
+  </button>
+
+
+</mat-toolbar>

@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-title>Ajouter une annonce :</mat-card-title>
+    <form (submit)="SavePost(userForm)" #userForm="ngForm">
+        <mat-form-field>
+            <mat-placeholder class="placeholder">titre de l'annonce</mat-placeholder>
+
+            <input matInput type="text"
+            ngModel
+            name="title"
+            required
+            #prtitle="ngModel"
+            >
+            <mat-error *ngIf="prtitle.invalid">Veuillez saisir un titre</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field> 
+            <mat-placeholder class="placeholder">Description de l'annonce</mat-placeholder>
+            <textarea matInput
+            ngModel
+            #prdescription="ngModel"
+            name="Description"
+            required
+            rows="20"
+
+            >
+            </textarea>
+            <mat-error *ngIf="prdescription.invalid">Veullez saisir une description de l'annonce</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="Test1">
+        <mat-label>Catégorie</mat-label>
+        <select 
+        matNativeControl
+        ngModel
+        required
+        name="category"
+        #prcategory="ngModel"
+        >
+            <option>catégorie1</option>
+            <option>catégorie2</option>
+        </select>
+        <mat-error *ngIf="prcategory.invalid">Veuillez choisir une catégorie</mat-error>
+        </mat-form-field>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-form-field appareance="fill" class="Test1">
+            <mat-label>Prix</mat-label>
+            <input matInput
+            name="price"
+            ngModel
+            type="number"
+            >
+            <span matSuffix><mat-icon>euro_symbol</mat-icon></span>
+        </mat-form-field>
+        <mat-card-actions>
+        <button
+        mat-raised-button
+        type="submit"
+        color="warn"
+        >Sauvegarder l'annonce !</button>
+        </mat-card-actions>
+    </form>
+</mat-card>
