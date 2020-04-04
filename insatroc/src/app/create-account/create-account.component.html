@@ -14,13 +14,13 @@
       <mat-form-field appearance="outline" class="container">
         <mat-label>Prénom</mat-label>
         <input matInput placeholder="Marie" ngModel [formControl]="first_name"  required>
-        <mat-error *ngIf="email.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+        <mat-error *ngIf="first_name.invalid">{{getFirstNameErrorMessage()}}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="container">
         <mat-label>Nom</mat-label>
         <input matInput placeholder="Dupont" ngModel [formControl]="last_name"  required>
-        <mat-error *ngIf="email.invalid">{{getLastNameErrorMessage()}}</mat-error>
+        <mat-error *ngIf="last_name.invalid">{{getLastNameErrorMessage()}}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="container">
@@ -31,10 +31,18 @@
 
       <mat-form-field appearance="outline" class="container">
         <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" placeholder="******" name="password" size="1" ngModel [formControl]="password"
+        <input matInput type="{{hide ? 'password' : 'text'}}"
+        placeholder="******"
+        name="password"
+        size="1"
+        ngModel
+        [formControl]="password"
         required
         minlength=5
         maxlength=25>
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
 

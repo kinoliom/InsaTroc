@@ -1,42 +1,66 @@
-<div class="container">
-  <form (submit)="SavePost(userForm)" #userForm="ngForm">
-    <br>
-    <br>
-    <span>Titre : </span>
-    <mat-form-field appearance="outline">
-      <input matInput name="title" size="1" ngModel required>
-    </mat-form-field>
+<mat-card>
   <br>
-    <span>Catégorie : </span>
-    <mat-form-field appearance="outline">
-      <mat-select name="category" size="1" ngModel required>
-        <mat-option value="chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
-        <mat-option value="kitchen"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
-        <mat-option value="sdb"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
-        <mat-option value="bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
-        <mat-option value="loisirs"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
-        <mat-option value="autres"><mat-icon>category</mat-icon>Autres</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-card-header>
+    <div>
+      <mat-card-title>Ajouter une annonce :</mat-card-title>
+    </div>
     <br>
-    <span>Prix : </span>
-    <mat-form-field appearance="outline">
-      <input matInput name="price" size="1" ngModel required>
-      <span matSuffix><mat-icon>euro_symbol</mat-icon></span>
-    </mat-form-field>
-<br>
-    <span>Description : </span>
-    <mat-form-field appearance="outline">
-      <textarea matInput ngModel name="description" required rows="1" rows="10"></textarea>
-    </mat-form-field>
+
+  </mat-card-header>
+
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Description de l'annonce</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label>Titre de l'annonce</mat-label>
+          <input matInput type="text" ngModel formControlName="title" required>
+        </mat-form-field>
+
+ <!-- Titre -->
+ <!-- <mat-form-field appearance="outline">
+  <mat-label>Titre de l'annonce</mat-label>
+    <mat-placeholder class="placeholder">Titre de l'annonce</mat-placeholder>
+    <input matInput type="text"
+    ngModel
+    required
+    formControlName="title">
+    <mat-error >Veuillez saisir un titre</mat-error>
+</mat-form-field> -->
+
+
+        <div>
+          <button mat-stroked-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Ajouter des images</ng-template>
+
+        <div>
+          <button mat-stroked-button matStepperPrevious>Précédent</button>
+          <button mat-stroked-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Voir mon annonce</ng-template>
+      <p>You are now done.</p>
+      <mat-card-actions>
+        <div class="container">
+          <button mat-raised-button type="submit" color="warn">Sauvegarder l'annonce !</button>
+        </div>
+      </mat-card-actions>
+      <div>
+        <button mat-stroked-button matStepperPrevious>Précédent</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <br>
 
 
 
-  <div>
-    <button mat-raised-button color="accent" type="submit">Sauvegarder l'annonce !</button>
-  </div>
 
-
-</form>
-
-</div>
+</mat-card>

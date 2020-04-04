@@ -11,22 +11,20 @@ export class CreateAccountComponent implements OnInit {
   last_name = new FormControl();
   email = new FormControl('', [Validators.email]);
   password = new FormControl('', []);
+  hide = true;
 
   constructor() { }
 
   getFirstNameErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.first_name.hasError('required')) {
       return 'Veuillez remplir ce champ';
     }
-    return this.email.hasError('email') ? 'Email non valide' : '';
   }
   getLastNameErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.last_name.hasError('required')) {
       return 'Veuillez remplir ce champ';
     }
-    return this.email.hasError('email') ? 'Email non valide' : '';
   }
-
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Veuillez remplir ce champ';

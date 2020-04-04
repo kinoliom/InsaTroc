@@ -24,10 +24,13 @@
 
       <mat-form-field appearance="outline" class="container">
         <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" name="password" placeholder="******" size="1" ngModel [formControl]="password"
+        <input matInput type="{{hide ? 'password' : 'text'}}" name="password" placeholder="******" size="1" ngModel [formControl]="password"
         required
         minlength=5
         maxlength=25>
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
 

@@ -9,6 +9,7 @@ import {NgForm, FormControl, Validators} from '@angular/forms';
 export class ConnectionComponent implements OnInit {
   email = new FormControl('', [Validators.email]);
   password = new FormControl('', []);
+  hide=true;
 
   constructor() { }
 
