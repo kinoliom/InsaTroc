@@ -23,6 +23,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 
 import {HttpClientModule} from '@angular/common/http';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
@@ -31,6 +34,7 @@ import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-r
 import { ConnectionComponent} from './connection/connection.component';
 import { CreateAccountComponent} from './create-account/create-account.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.component';
 
 
 
@@ -45,12 +49,15 @@ import {MatBadgeModule} from '@angular/material/badge';
     PostCreateReaComponent,
     ConnectionComponent,
     CreateAccountComponent
+    PostCreateReaComponent,
+    PostViewerV2Component
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MatCheckboxModule,
+    MatExpansionModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
