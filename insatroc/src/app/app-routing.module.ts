@@ -6,9 +6,11 @@ import { PostCreateComponent } from './annonces/post-create/post-create.componen
 import { PostViewerComponent } from './annonces/post-viewer/post-viewer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
+import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-rea.component';
 
 const routes: Routes = [
   // {path: '', component: AppComponent},
+  {path: 'deposer-une-annonce-rea', component: PostCreateReaComponent},
   {path: 'deposer-une-annonce-alt', component: PostCreateAltComponent},
   {path: 'deposer-une-annonce', component: PostCreateComponent},
   {path: 'toutes-les-annonces', component: PostViewerComponent},

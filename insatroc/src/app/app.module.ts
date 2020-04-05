@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostCreateComponent } from './annonces/post-create/post-create.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostViewerComponent } from './annonces/post-viewer/post-viewer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -21,10 +21,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import {HttpClientModule} from '@angular/common/http';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-rea.component';
 
 
 
@@ -36,11 +39,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PostViewerComponent,
     HeaderComponent,
     HomepageComponent,
-    PostCreateAltComponent
+    PostCreateAltComponent,
+    PostCreateReaComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
+    MatCheckboxModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
