@@ -1,0 +1,24 @@
+<p>post-viewer-v2 works!</p>
+
+<mat-card>
+
+</mat-card>
+<mat-card *ngFor="let annonce of Annonces">
+    <mat-card-header>
+        <mat-card-title>{{annonce.title}}</mat-card-title>
+        <mat-card-subtitle>{{annonce.category}}</mat-card-subtitle>
+
+    </mat-card-header>
+    <img mat-card-image class="image" src="../../../assets/images/sac.jpg">
+    <mat-card-content>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>Description</mat-expansion-panel-header>
+            <p>
+                {{annonce.description}}
+            </p>
+
+        </mat-expansion-panel>
+    </mat-card-content>
+    <mat-card-footer>{{annonce.price}}</mat-card-footer>
+
+</mat-card>

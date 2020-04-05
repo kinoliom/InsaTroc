@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-post-create-rea',
   templateUrl: './post-create-rea.component.html',
@@ -9,7 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class PostCreateReaComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar ) { }
   Announce : PostModel;
   Announces = [];
   free : Boolean = true;
