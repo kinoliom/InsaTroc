@@ -48,7 +48,7 @@ import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.
     PostCreateAltComponent,
     PostCreateReaComponent,
     ConnectionComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
     PostCreateReaComponent,
     PostViewerV2Component
   ],
