@@ -22,13 +22,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 import {HttpClientModule} from '@angular/common/http';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-rea.component';
-
+import { ConnectionComponent} from './connection/connection.component';
+import { CreateAccountComponent} from './create-account/create-account.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -40,7 +42,9 @@ import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-r
     HeaderComponent,
     HomepageComponent,
     PostCreateAltComponent,
-    PostCreateReaComponent
+    PostCreateReaComponent,
+    ConnectionComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,9 @@ import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-r
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    MatStepperModule,
+    MatBadgeModule
 
   ],
   providers: [],

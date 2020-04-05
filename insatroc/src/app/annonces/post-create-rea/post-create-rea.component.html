@@ -11,7 +11,7 @@
             <mat-error *ngIf="form.get('title').hasError('minlength')">Trop petit :DD</mat-error>
 
         </mat-form-field>
-        <mat-form-field> 
+        <mat-form-field>
             <mat-placeholder class="placeholder">Description de l'annonce</mat-placeholder>
             <textarea matInput
             formControlName="description"
@@ -24,7 +24,7 @@
 
         <mat-form-field class="Test1">
         <mat-label>Catégorie</mat-label>
-        <select 
+        <select
         matNativeControl
         formControlName="category"
         name="category"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl, Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -10,20 +10,75 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class PostCreateAltComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private _formBuilder: FormBuilder) { }
   Announce : PostModel;
   Announces = [];
+  free : Boolean = false;
+  form: FormGroup;
+  urls = [];
+  slideIndex = 0;
+
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      'title':new FormControl(null,{validators:[Validators.required, Validators.minLength(5)]}),
+      'category':new FormControl(null,{validators:[Validators.required]}),
+      'description': new FormControl(null,{validators:[Validators.required,Validators.minLength(10)]}),
+      'price': new FormControl(null,{validators:[Validators.min(0)]}),
+      'checkbox':new FormControl(null)
+    });
+
   }
-  SavePost (form: NgForm) {
+
+  HidePrice(){
+    this.free=!this.free;
+    this.form.value.price=null;
+  }
+
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (event:any) => {
+            this.urls.push(event.target.result);
+        }
+        reader.readAsDataURL(event.target.files[i]);
+      }
+    }
+  }
+
+  DeletePicture(i){
+    this.urls.splice(i,1);
+  }
+
+  PlusSlides(n) {
+    this.slideIndex+=n;
+    console.log("plusslides");
+  }
+
+  currentSlide(n) {
+    this.slideIndex = n;
+  }
+
+  SavePost (form: FormGroup) {
     if (form.invalid) {
       console.log("Invalid form");
       this._snackBar.open("Annonce invalide !","x")
       return;
     }
-    this.Announces.push(form.value.title,form.value.Description,form.value.category,form.value.price);
+
+    const annonce : PostModel = {
+      _id:null,
+      title:this.form.value.title,
+      description:this.form.value.description,
+      category:this.form.value.category,
+      price:this.form.value.price,
+      urls: this.urls
+    }
+    this.Announces.push(annonce);
     console.log(this.Announces);
+    this.form.reset();
   }
 
 }

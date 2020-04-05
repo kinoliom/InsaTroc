@@ -14,6 +14,7 @@ export class PostCreateReaComponent implements OnInit {
   Announces = [];
   free : Boolean = true;
   form : FormGroup;
+  urls = [];
 
   ngOnInit(): void {
     console.log("ngOnInit starts");
@@ -40,7 +41,8 @@ export class PostCreateReaComponent implements OnInit {
       title:this.form.value.title,
       description:this.form.value.description,
       category:this.form.value.category,
-      price:this.form.value.price
+      price:this.form.value.price,
+      urls: this.urls
     }
     this.Announces.push(annonce);
     console.log(this.Announces);
