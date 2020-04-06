@@ -37,6 +37,7 @@ input::-webkit-inner-spin-button {
   padding-left: 40%;
 }
 
+/* For the selection of images in step #2 */
 .thumbnail {
   display: inline-flex;
   width:45%;
@@ -58,21 +59,6 @@ input::-webkit-inner-spin-button {
   top:0;
   right:0;
   }
-
-  .photo1 {
-    display: block;
-    width:90%;
-    height: 60%;
-    position:relative;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    }
-
-    .photo1 img {
-    max-width:100%;
-    max-height:100%;
-    }
-
 
 
     * {
