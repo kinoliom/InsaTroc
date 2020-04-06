@@ -39,4 +39,10 @@ export class PostViewerComponent implements OnInit {
   }
 
   AddAnnounce(annonce : PostModel){}
+  ResetFiltrage(){
+    this.annoncesFiltrees = 0;
+  }
+  Filtrage(){
+    this.annoncesFiltrees +=1;
+  }
 }
