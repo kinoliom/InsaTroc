@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostModel } from '../post_model';
+import {HttpService } from '../../http.service'
+
 
 @Component({
   selector: 'app-post-viewer',
@@ -17,8 +19,10 @@ export class PostViewerComponent implements OnInit {
   Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "Autres", price: 50, urls: ['../../../assets/images/sac.jpg']},
                            {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "Loisirs/Sport", price: 10, urls: ['../../../assets/images/sac.jpg']}
   ]
+  Annoncesv2 :PostModel[]= [];
 
-  constructor() { }
+
+  constructor(public httpservice: HttpService) { }
 
   log (status) {
     console.log(status)
@@ -28,8 +32,8 @@ export class PostViewerComponent implements OnInit {
     console.log(this.Annonces)
     console.log(this.selected)
     console.log(this.maxprice)
+    this.Annoncesv2 = this.httpservice.GetPost();
+    console.log(this.Annoncesv2);
   }
-
-  AddAnnounce(annonce : PostModel){}
 
 }

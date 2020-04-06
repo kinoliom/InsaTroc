@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormBuilder, FormGroup, AbstractControl, ValidatorFn} from '@angular/forms';
 import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {HttpService} from '../../http.service'
 
 @Component({
   selector: 'app-post-create-alt',
@@ -10,7 +11,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class PostCreateAltComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, private _formBuilder: FormBuilder) { }
+  constructor(private _snackBar: MatSnackBar, private _formBuilder: FormBuilder,public httpService:HttpService) { }
   Announce : PostModel;
   Announces = [];
   free : Boolean = false;
@@ -79,8 +80,7 @@ export class PostCreateAltComponent implements OnInit {
       price:this.form.value.price,
       urls: this.urls
     }
-    this.Announces.push(annonce);
-    console.log(this.Announces);
+    this.httpService.AddPost(annonce);
     this.form.reset();
     this.urls = [];
     // redirigier vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID

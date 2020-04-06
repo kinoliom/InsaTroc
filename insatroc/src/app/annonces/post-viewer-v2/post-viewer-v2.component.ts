@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostModel } from '../post_model';
 import { Injectable } from '@angular/core';
+import {HttpService } from '../../http.service'
 
 
 
@@ -10,20 +11,20 @@ import { Injectable } from '@angular/core';
   styleUrls: ['./post-viewer-v2.component.css']
 })
 export class PostViewerV2Component implements OnInit {
+  public httpservice: HttpService;
 
   Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "catégorie1", price: 50, urls: ['../../../assets/images/sac.jpg']},
                            {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "catégorie2", price: 10, urls: ['../../../assets/images/sac.jpg']}
   ]
+  Annoncesv2 :PostModel[]= [];
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.Annonces)
+    this.Annoncesv2 = this.httpservice.GetPost();
+    console.log(this.Annoncesv2)
   }
 
-  AddAnnounce(annonce : PostModel){
-
-  }
 
 
 }

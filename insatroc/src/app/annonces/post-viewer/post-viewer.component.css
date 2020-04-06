@@ -45,3 +45,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+.Nocontent {
+  color: red;
+  text-align: center;
+ 
+}
