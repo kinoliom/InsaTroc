@@ -8,7 +8,7 @@
 
   </mat-card-header>
   <form name="form" [formGroup]="form" (ngSubmit)="SavePost(form)">
-    <mat-horizontal-stepper [linear]=false #stepper >
+    <mat-horizontal-stepper [linear]="true" #stepper >
       <!-- First step : Description de l'annonce -->
       <mat-step [stepControl]="form">
         <ng-template matStepLabel>Description de l'annonce</ng-template>
@@ -67,7 +67,7 @@
                 <mat-error *ngIf="form.get('description').hasError('required')">Veullez saisir une description de l'annonce</mat-error>
             </mat-form-field>
             <div>
-              <button mat-stroked-button matStepperNext color="primary" type="button" style="float: right;">Suivant</button>
+              <button mat-stroked-button matStepperNext color="primary" [disabled]="form.invalid" type="button" style="float: right;">Suivant</button>
             </div>
     </mat-step>
 
@@ -77,7 +77,11 @@
           <div class="container">
             <!-- <mat-form-field> -->
               <input style="display: none" type='file' (change)="onSelectFile($event)" multiple #fileInput>
-              <button type="button" mat-raised-button (click)="fileInput.click()">Choisir</button>
+              <button type="button" mat-raised-button (click)="fileInput.click()">
+                <mat-icon>vertical_align_top</mat-icon>
+                Choisir
+              </button>
+
             <!-- </mat-form-field> -->
             <br>
           </div>

@@ -32,7 +32,8 @@ export class PostCreateAltComponent implements OnInit {
 
   HidePrice(){
     this.free=!this.free;
-    this.form.value.price=null;
+    this.form.patchValue({price:999999})
+    //this.form.controls['price'].disable();
   }
 
   onSelectFile(event) {
