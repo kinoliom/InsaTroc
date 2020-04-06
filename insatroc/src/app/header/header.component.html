@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">   <!--primary, accent or warn-->
+<mat-toolbar color="primary" style="position: sticky; top: 0; z-index: 1000;">   <!--primary, accent or warn-->
   <span>
     <mat-icon>eco</mat-icon>
   </span>
@@ -10,7 +10,7 @@
   <span class="spacer"></span>
   <button mat-button routerLink="/deposer-une-annonce-alt">
     <mat-icon>add_circle</mat-icon>
-    Déposer une annonce(alt)
+    Déposer une annonce
   </button>
   <span class="spacer"></span>
 
@@ -19,10 +19,10 @@
       Déposer une annonce
   </button> -->
   <!-- </button> -->
-  <button mat-button routerLink="/Annonces">
+  <!-- <button mat-button routerLink="/Annonces">
     <mat-icon>pool</mat-icon>
     Voir toutes les annonces
-  </button>
+  </button> -->
   <button mat-button routerLink="/toutes-les-annonces">
     <mat-icon>dns</mat-icon>
     Voir toutes les annonces
@@ -39,10 +39,25 @@
   <input mat-clearable-input placeholder="Rechercher une annonce">
   <span class="spacer"></span>
 
-  <button mat-button routerLink="/connexion">
-    <mat-icon>account_circle</mat-icon>
-    Connexion
-  </button>
+  <ng-container *ngIf="loggedin">
+    <button mat-button [matMenuTriggerFor]="profile">
+      <mat-icon>account_circle</mat-icon>
+      Username
+    </button>
+    <mat-menu #profile="matMenu">
+      <button mat-menu-item routerLink="/:user">Mon profil</button>
+      <button mat-menu-item routerLink="/:annonces">Mes annonces</button>
+      <button mat-menu-item routerLink="/connexion" (click)="Disconnect()">Déconnexion</button>
+    </mat-menu>
+  </ng-container>
+
+  <ng-container *ngIf="!loggedin">
+    <button mat-button routerLink="/connexion">
+      <mat-icon>account_circle</mat-icon>
+      Connexion
+    </button>
+  </ng-container>
+
 
 
 </mat-toolbar>

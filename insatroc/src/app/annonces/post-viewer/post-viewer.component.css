@@ -1,5 +1,10 @@
 mat-sidenav-container {
-
+  background: url('../../../assets/images/coloredpencils.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
   height: 100%;
 
 }
@@ -11,10 +16,32 @@ mat-sidenav {
   width: 20%;
 }
 mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  right: 0;
+  left: 0;
 }
 
 .fill-remaining-space {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
+}
+
+mat-card {
+  margin-top: 3%;
+  position: relative;
+  width: 50%;
+  margin-left: 24%;
+}
+.image {
+
+  max-height: 90%;
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
 }

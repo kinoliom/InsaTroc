@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormControl, Validators, FormBuilder, FormGroup} from '@angular/forms';
+import { NgForm, FormControl, Validators, FormBuilder, FormGroup, AbstractControl, ValidatorFn} from '@angular/forms';
 import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -17,6 +17,7 @@ export class PostCreateAltComponent implements OnInit {
   form: FormGroup;
   urls = [];
   slideIndex = 0;
+  selected = [];
 
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class PostCreateAltComponent implements OnInit {
         reader.readAsDataURL(event.target.files[i]);
       }
     }
+
   }
 
   DeletePicture(i){
@@ -63,7 +65,7 @@ export class PostCreateAltComponent implements OnInit {
   }
 
   SavePost (form: FormGroup) {
-    if (form.invalid) {
+    if (form.invalid || this.urls.length>5) {
       console.log("Invalid form");
       this._snackBar.open("Annonce invalide !","x")
       return;
@@ -80,6 +82,8 @@ export class PostCreateAltComponent implements OnInit {
     this.Announces.push(annonce);
     console.log(this.Announces);
     this.form.reset();
+    this.urls = [];
+    // redirigier vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID
   }
 
 }

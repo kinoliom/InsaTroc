@@ -9,9 +9,14 @@ import { PostModel } from '../post_model';
 export class PostViewerComponent implements OnInit {
   posts : PostModel[] = [];
   sidetoggle = false;
-  value;
   min = 0;
   max = 300;
+  selected=[];
+  maxprice=0;
+
+  Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "Autres", price: 50, urls: ['../../../assets/images/sac.jpg']},
+                           {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "Loisirs/Sport", price: 10, urls: ['../../../assets/images/sac.jpg']}
+  ]
 
   constructor() { }
 
@@ -20,6 +25,11 @@ export class PostViewerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.Annonces)
+    console.log(this.selected)
+    console.log(this.maxprice)
   }
+
+  AddAnnounce(annonce : PostModel){}
 
 }

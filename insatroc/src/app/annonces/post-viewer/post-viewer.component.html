@@ -13,18 +13,19 @@
       <br>
       <span>Filtrer par</span>
       <mat-form-field appearance="standard">
-        <mat-select placeholder="Catégorie" name="category" size="1" ngModel required>
-          <mat-option value="chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
-          <mat-option value="kitchen"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
-          <mat-option value="sdb"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
-          <mat-option value="bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
-          <mat-option value="loisirs"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
-          <mat-option value="autres"><mat-icon>category</mat-icon>Autres</mat-option>
+        <mat-select placeholder="Catégorie" name="category" size="1" ngModel required [(value)]="selected" multiple>
+          <mat-select-trigger>{{selected}}</mat-select-trigger>
+          <mat-option value="Chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
+          <mat-option value="Cuisine"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
+          <mat-option value="Salle de bain"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
+          <mat-option value="Bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
+          <mat-option value="Loisirs/Sport"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
+          <mat-option value="Autres"><mat-icon>category</mat-icon>Autres</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="standard">
-        <mat-label>Prix</mat-label>
-        <input matInput type="number" [(ngModel)]="value">
+        <mat-label>Prix maximum</mat-label>
+        <input matInput type="number" [(ngModel)]="maxprice">
       </mat-form-field>
       <br>
       <span>{{min}}      </span>
@@ -34,7 +35,7 @@
         [min]="min"
         [step]=1
         [thumbLabel]=1
-        [(ngModel)]="value">
+        [(ngModel)]="maxprice">
       </mat-slider>
       <span>{{max}}</span>
     </mat-nav-list>
@@ -43,7 +44,7 @@
 
   <mat-sidenav-content>
 
-    <mat-toolbar color="disabled">   <!--primary, accent or warn-->
+    <mat-toolbar color="disabled">
       <button mat-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
       </button>
@@ -51,21 +52,25 @@
       <span class="fill-remaining-space"></span>
     </mat-toolbar>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <ng-container *ngFor="let annonce of Annonces">
+      <mat-card *ngIf="(annonce.price<=maxprice || maxprice==0) && (selected.includes(annonce.category) || selected.length==0)">
+        <mat-card-header style="float:left;">
+            <mat-card-title>{{annonce.title}}</mat-card-title>
+            <mat-card-subtitle>{{annonce.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <h2 align="right" style="color: crimson">{{annonce.price}} €</h2>
+        <img mat-card-image class="image" src={{annonce.urls[0]}}>
+        <mat-card-content>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>Description</mat-expansion-panel-header>
+                <p>
+                    {{annonce.description}}
+                </p>
+
+            </mat-expansion-panel>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
 
 
 

@@ -1,15 +1,15 @@
-<p>post-viewer-v2 works!</p>
+<mat-toolbar class="container">
+  <h1>Toutes les annonces</h1>
 
-<mat-card>
+</mat-toolbar>
 
-</mat-card>
 <mat-card *ngFor="let annonce of Annonces">
-    <mat-card-header>
+    <mat-card-header style="float:left;">
         <mat-card-title>{{annonce.title}}</mat-card-title>
         <mat-card-subtitle>{{annonce.category}}</mat-card-subtitle>
-
     </mat-card-header>
-    <img mat-card-image class="image" src="../../../assets/images/sac.jpg">
+    <h2 align="right" style="color: crimson">{{annonce.price}} €</h2>
+    <img mat-card-image class="image" src={{annonce.urls[0]}}>
     <mat-card-content>
         <mat-expansion-panel>
             <mat-expansion-panel-header>Description</mat-expansion-panel-header>
@@ -19,6 +19,5 @@
 
         </mat-expansion-panel>
     </mat-card-content>
-    <mat-card-footer>{{annonce.price}}</mat-card-footer>
 
 </mat-card>

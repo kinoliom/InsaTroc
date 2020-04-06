@@ -7,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   sidetoggle = false;
+  loggedin = true;
 
 
   constructor() { }
 
   log (status) {
     console.log(status)
+  }
+
+  Disconnect(){
+    this.loggedin = false;
   }
 
   ngOnInit(): void {

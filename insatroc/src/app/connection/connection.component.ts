@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm, FormControl, Validators} from '@angular/forms';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-connection',
@@ -32,7 +33,8 @@ export class ConnectionComponent implements OnInit {
 
   }
 
-  Login(form){}
+  Login(form){
+  }
 
   ngOnInit(): void {
   }

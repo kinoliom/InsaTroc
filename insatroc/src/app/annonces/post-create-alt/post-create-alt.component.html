@@ -18,7 +18,7 @@
               <mat-label>Titre de l'annonce</mat-label>
                 <mat-placeholder class="placeholder">Titre de l'annonce</mat-placeholder>
                 <input matInput type="text"
-                ngModel
+
                 required
                 formControlName="title">
                 <mat-error *ngIf="form.get('title').hasError('required')">Veuillez saisir un titre</mat-error>
@@ -28,13 +28,14 @@
             <!-- Catégorie -->
             <mat-form-field class="Test1" appearance="outline">
               <mat-label>Catégorie</mat-label>
-              <mat-select matNativeControl name="category" ngModel required  formControlName="category">
-                <mat-option value="chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
-                <mat-option value="kitchen"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
-                <mat-option value="sdb"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
-                <mat-option value="bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
-                <mat-option value="loisirs"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
-                <mat-option value="autres"><mat-icon>category</mat-icon>Autres</mat-option>
+              <mat-select matNativeControl name="category" required  formControlName="category" [(value)]="selected">
+                <mat-select-trigger>{{selected}}</mat-select-trigger>
+                <mat-option value="Chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
+                <mat-option value="Cuisine"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
+                <mat-option value="Salle de bain"><mat-icon>bathtub</mat-icon>Salle de bain</mat-option>
+                <mat-option value="Bureau"><mat-icon>menu_book</mat-icon>Bureau</mat-option>
+                <mat-option value="Loisirs/Sport"><mat-icon>sports_esports</mat-icon>Loisirs/Sport</mat-option>
+                <mat-option value="Autres"><mat-icon>category</mat-icon>Autres</mat-option>
               </mat-select>
               <mat-error *ngIf="form.get('category').invalid">Veuillez choisir une catégorie</mat-error>
             </mat-form-field>
@@ -43,7 +44,7 @@
               <!-- Prix -->
               <mat-form-field *ngIf="!free" class="Test1" appearance="outline">
                 <mat-label>Prix</mat-label>
-                <input matInput type="number" name="price" ngModel required min="0" formControlName="price">
+                <input matInput type="number" name="price" required min="0" formControlName="price">
                 <span matSuffix><mat-icon>euro_symbol</mat-icon></span>
                 <mat-error *ngIf="form.get('price').hasError('required')">Veuillez saisir un prix</mat-error>
                 <mat-error *ngIf="form.get('price').hasError('min')">Veuillez saisir un prix valide</mat-error>
@@ -56,7 +57,7 @@
             <mat-form-field appearance="outline">
                 <mat-label class="placeholder">Description de l'annonce</mat-label>
                 <textarea matInput
-                ngModel
+
                 formControlName="description"
                 name="Description"
                 required
@@ -100,7 +101,7 @@
         <br>
         <div>
           <button mat-stroked-button matStepperPrevious color="primary" style="float: left;" type="button">Précédent</button>
-          <button mat-stroked-button matStepperNext color="primary" style="float: right;" type="button">Suivant</button>
+          <button mat-stroked-button matStepperNext color="primary" style="float: right;" type="button" [disabled]="urls.length>5">Suivant</button>
         </div>
     </mat-step>
 

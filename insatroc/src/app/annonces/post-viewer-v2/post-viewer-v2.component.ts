@@ -11,8 +11,8 @@ import { Injectable } from '@angular/core';
 })
 export class PostViewerV2Component implements OnInit {
 
-  Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "catégorie1", price: 50, urls: []},
-                           {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "catégorie2", price: 10, urls: []}
+  Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "catégorie1", price: 50, urls: ['../../../assets/images/sac.jpg']},
+                           {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "catégorie2", price: 10, urls: ['../../../assets/images/sac.jpg']}
   ]
 
   constructor() { }
