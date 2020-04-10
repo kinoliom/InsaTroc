@@ -24,6 +24,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -56,6 +58,7 @@ import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.
     ReactiveFormsModule,
     AppRoutingModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
     MatExpansionModule,
     FormsModule,
     BrowserAnimationsModule,

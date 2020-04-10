@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../http.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   sidetoggle = false;
   loggedin = true;
+  themetoggle = false;
 
 
-  constructor() { }
+  constructor(public httpService: HttpService) { }
 
   log (status) {
     console.log(status)
@@ -19,6 +21,17 @@ export class HeaderComponent implements OnInit {
   Disconnect(){
     this.loggedin = false;
   }
+  changetheme() {
+    if (this.themetoggle) {
+      this.httpService.changetheme('');
+      this.themetoggle = !this.themetoggle;
+    }else{
+      this.httpService.changetheme('alternative');
+      this.themetoggle = !this.themetoggle;
+    }
+    
+  }
+  test(){}
 
   ngOnInit(): void {
   }
