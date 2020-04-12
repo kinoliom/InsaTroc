@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormBuilder, FormGroup, AbstractControl, ValidatorFn} from '@angular/forms';
 import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {HttpService} from '../../http.service'
+import {HttpService} from '../../http.service';
+import {imageValidator} from './home-made.validator';
+
 
 @Component({
   selector: 'app-post-create-alt',
@@ -16,6 +18,7 @@ export class PostCreateAltComponent implements OnInit {
   Announces = [];
   free : Boolean = false;
   form: FormGroup;
+  form2: FormGroup;
   urls = [];
   slideIndex = 0;
   selected = [];
@@ -23,12 +26,16 @@ export class PostCreateAltComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'title':new FormControl(null,{validators:[Validators.required, Validators.minLength(5)]}),
-      'category':new FormControl(null,{validators:[Validators.required]}),
-      'description': new FormControl(null,{validators:[Validators.required,Validators.minLength(10)]}),
-      'price': new FormControl(null,{validators:[Validators.min(0)]}),
-      'checkbox':new FormControl(null)
+      title:new FormControl(null,{validators:[Validators.required, Validators.minLength(5)]}),
+      category:new FormControl(null,{validators:[Validators.required]}),
+      description: new FormControl(null,{validators:[Validators.required,Validators.minLength(10)]}),
+      price: new FormControl(null,{validators:[Validators.min(0)]}),
+      checkbox:new FormControl(null),
+      //image:new FormControl(null,{validators:[imageValidator]})
     });
+    this.form2 = new FormGroup({
+      image:new FormControl(null,{validators:[imageValidator]})
+    })
 
   }
 
@@ -42,11 +49,24 @@ export class PostCreateAltComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
+        var reader2 = new FileReader();
         var reader = new FileReader();
         reader.onload = (event:any) => {
-            this.urls.push(event.target.result);
+          this.urls.push(event.target.result);
         }
-        reader.readAsDataURL(event.target.files[i]);
+        reader2.onload = () => {
+          this.form2.get('image').patchValue(reader2.result);
+          this.form2.get('image').updateValueAndValidity();
+          if (!this.form2.get('image').hasError('chocoloco')){
+            reader.readAsDataURL(event.target.files[i]);
+            //uploadi l9lawi
+          }else {
+            console.log('7chi l mok')
+            //mat uploadich l9lawi
+          }
+
+        }
+        reader2.readAsArrayBuffer(event.target.files[i]);
       }
     }
 
