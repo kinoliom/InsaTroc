@@ -18,10 +18,13 @@ export class PostViewerComponent implements OnInit {
 
 
   Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "Autres", price: 50, urls: ['../../../assets/images/sac.jpg','../../../assets/images/coloredpencils.jpg']},
-                           {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "Loisirs/Sport", price: 10, urls: ['../../../assets/images/sac.jpg']}
+                           {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "Loisirs/Sport", price: 10, urls: ['../../../assets/images/sac.jpg','../../../assets/images/coloredpencils.jpg']}
   ]
   annoncesFiltrees = this.Annonces.length;
   Annoncesv2 :PostModel[]= [];
+  activeImage = null;
+  para = 0;
+
 
 
   constructor(public httpservice: HttpService) { }
@@ -39,6 +42,24 @@ export class PostViewerComponent implements OnInit {
   }
 
   AddAnnounce(annonce : PostModel){}
+  shownext(i){
+    //let doc = document.getElementsByClassName('image'+i); 
+    //for(let b = 1;b< doc.length;b++ ){
+      //(doc[b] as HTMLElement).style.display='n'
+    //}
+    //console.log(i);
+    //console.log((document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display);
+    //(document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display='none';
+    (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[1];
+
+    
+
+  }
+  showprevious(i){
+    (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[0];
+
+
+  }
   ResetFiltrage(){
     this.annoncesFiltrees = 0;
   }

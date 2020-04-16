@@ -60,7 +60,7 @@
     </mat-toolbar>
 
     <!-- Posts -->
-    <ng-container *ngFor="let annonce of Annonces">
+    <ng-container *ngFor="let annonce of Annonces ; let i = index">
       <mat-card *ngIf="(annonce.price<=maxprice || maxprice==0) && (selected.includes(annonce.category) || selected.length==0)" >
         {{Filtrage()}}
         <mat-card-header style="float:left;">
@@ -68,7 +68,11 @@
             <mat-card-subtitle>{{annonce.category}}</mat-card-subtitle>
         </mat-card-header>
         <h2 align="right" style="color: crimson">{{annonce.price}} €</h2>
-        <img mat-card-image class="image" src={{annonce.urls[0]}}>
+        <mat-card-content class="sliderr">
+        <img mat-card-image class='image{{i}} ' id={{i}}  src={{annonce.urls[0]}}>
+        <button class="prev" (click)="showprevious(i)">previous</button>
+        <button class="next" (click)="shownext(i)">next</button>
+        </mat-card-content>
 
 
         <mat-card-content>
