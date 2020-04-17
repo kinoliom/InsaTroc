@@ -18,17 +18,19 @@ export class HttpService {
   }
 
   getBeer(){
-    return this.http.get('https://api.openbrewerydb.org/breweries')
+    //return this.http.get('https://api.openbrewerydb.org/breweries')
+    // return this.http.get('http://localhost:3000/post_viewer');
+    return this.http.get('http://localhost:3000/post-viewer'+ 43);
   }
   AddPost(post:PostModel){
-    //requete post http vers backend pour stocker post dans BD 
+    //requete post http vers backend pour stocker post dans BD
     this.posts.push(post);
     this.http.post('http://localhost:3000/test',55);
     console.log(this.posts.length);
   }
   GetPost(){
     //requete get http vers backend pour récuperer les postes depuis la BD
-    return this.posts
+    return this.posts;
   }
   onThemeUpdate(){
     return(this.themeUpdater.asObservable())

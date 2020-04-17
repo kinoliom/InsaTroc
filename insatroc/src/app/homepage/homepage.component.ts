@@ -13,11 +13,13 @@ export class HomepageComponent implements OnInit {
   constructor(private _http: HttpService) { }
 
   ngOnInit(): void {
-    this._http.getBeer().subscribe(data => {
-      this.brews = data
-      console.log(this.brews);
-    });
-    this._http.myMethod();
+    // this._http.getBeer().subscribe(data => {
+    //   this.brews = data
+    //   console.log(this.brews);
+    // });
+    this._http.getBeer();
+    console.log(this._http.getBeer());
+    console.log("blablabla homepage")
   }
 
 }
