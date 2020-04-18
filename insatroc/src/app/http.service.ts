@@ -25,7 +25,7 @@ export class HttpService {
   AddPost(post:PostModel){
     //requete post http vers backend pour stocker post dans BD
     this.posts.push(post);
-    this.http.post<{response:string}>('http://localhost:3000/test',55).subscribe(
+    this.http.post<{response:string}>('http://localhost:3000/addPost',post).subscribe(
       (response) => { console.log(response)},
       (error) => {console.log(error)},
       

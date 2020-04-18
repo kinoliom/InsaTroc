@@ -17,7 +17,7 @@ export class PostViewerComponent implements OnInit {
   maxprice=0;
 
 
-  Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "Autres", price: 50, urls: ['../../../assets/images/sac.jpg','../../../assets/images/coloredpencils.jpg']},
+  Annonces :PostModel[] = [{_id: null, title: "Vends un sac ", description: "je vends un sac pour venir sac si sac alors sac sac", category: "Autres", price: 50, urls: ['../../../assets/images/sac.jpg','../../../assets/images/coloredpencils.jpg','../../../assets/images/pileofcolorpencils.jpg']},
                            {_id: null, title: "Vends un sac de couchage ", description: "je vends un sac de couchage , trs inconfortable mais c'est mieux que rien", category: "Loisirs/Sport", price: 10, urls: ['../../../assets/images/sac.jpg','../../../assets/images/coloredpencils.jpg']}
   ]
   annoncesFiltrees = this.Annonces.length;
@@ -42,7 +42,7 @@ export class PostViewerComponent implements OnInit {
   }
 
   AddAnnounce(annonce : PostModel){}
-  shownext(i){
+  slideIt(i,seq:number){
     //let doc = document.getElementsByClassName('image'+i); 
     //for(let b = 1;b< doc.length;b++ ){
       //(doc[b] as HTMLElement).style.display='n'
@@ -50,18 +50,21 @@ export class PostViewerComponent implements OnInit {
     //console.log(i);
     //console.log((document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display);
     //(document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display='none';
-    (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[1];
-    this.Annonces[i].urls.push(this.Annonces[i].urls[0]);
-    this.Annonces[i].urls.shift();
+    let f = this.Annonces[i].urls.length;
+    if(seq == 1 ){
+      (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[1];
+      this.Annonces[i].urls.push(this.Annonces[i].urls[0]);
+      this.Annonces[i].urls.shift();
+      console.log(this.Annonces[i].urls)
+    }else{
+      this.Annonces[i].urls.unshift(this.Annonces[i].urls[f-1]);
+      this.Annonces[i].urls.pop();
+      (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[0];
+      console.log(this.Annonces[i].urls)
+    }
     
 
     
-
-  }
-  showprevious(i){
-    console.log((document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src);
-    console.log(this.Annonces[i].urls[0]);
-
 
   }
   ResetFiltrage(){

@@ -1,13 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
-app.use(cors());
+var corsOptions = {
+  origin: 'http://localhost:4200',
+  optionsSuccessStatus: 200 
+}
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
+
 
 app.get('/', (req, res) => {
     res.send('An alligator approaches!');
 });
-app.post('/test',(req,res) => {
-    console.log(req);
+app.post('/addPost',(req,res) => {
+    console.log(req.body);
     //To do : Extract the ''data'' from the req !
     console.log('Got something !')
     res.json({response:'InsaTroc is Alive !'})
