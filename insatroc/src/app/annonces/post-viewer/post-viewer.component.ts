@@ -51,12 +51,16 @@ export class PostViewerComponent implements OnInit {
     //console.log((document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display);
     //(document.getElementsByClassName('image'+i)[0] as HTMLElement).style.display='none';
     (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[1];
+    this.Annonces[i].urls.push(this.Annonces[i].urls[0]);
+    this.Annonces[i].urls.shift();
+    
 
     
 
   }
   showprevious(i){
-    (document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src=this.Annonces[i].urls[0];
+    console.log((document.getElementsByClassName('image'+i)[0] as HTMLImageElement).src);
+    console.log(this.Annonces[i].urls[0]);
 
 
   }

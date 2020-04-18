@@ -1,12 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('An alligator approaches!');
 });
 app.post('/test',(req,res) => {
-    console.log(4)
-    res.send('InsaTroc is Alive !')
+    console.log(req);
+    //To do : Extract the ''data'' from the req !
+    console.log('Got something !')
+    res.json({response:'InsaTroc is Alive !'})
 });
 
 app.route('/post-viewer/:id').get((req, res) => {
