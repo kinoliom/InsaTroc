@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 var corsOptions = {
   origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200 
+  optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
@@ -21,6 +21,7 @@ app.post('/addPost',(req,res) => {
 });
 
 app.route('/post-viewer/:id').get((req, res) => {
+  console.log("requete id");
   const postID = req.params['id'];
   res.send({id: postID});
 })

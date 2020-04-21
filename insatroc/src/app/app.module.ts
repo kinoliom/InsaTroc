@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostCreateComponent } from './annonces/post-create/post-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostViewerComponent } from './annonces/post-viewer/post-viewer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,27 +30,21 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {HttpClientModule} from '@angular/common/http';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-rea.component';
 import { ConnectionComponent} from './connection/connection.component';
 import { CreateAccountComponent} from './create-account/create-account.component';
 import {MatBadgeModule} from '@angular/material/badge';
-import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent,
     PostViewerComponent,
     HeaderComponent,
     HomepageComponent,
     PostCreateAltComponent,
-    PostCreateReaComponent,
     ConnectionComponent,
     CreateAccountComponent,
-    PostCreateReaComponent,
-    PostViewerV2Component
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class HomepageComponent implements OnInit {
     // });
     this._http.getBeer();
     console.log(this._http.getBeer());
-    console.log("blablabla homepage")
+    console.log("blablabla homepage");
   }
 
 }

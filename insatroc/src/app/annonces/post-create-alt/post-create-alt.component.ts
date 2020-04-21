@@ -26,7 +26,7 @@ export class PostCreateAltComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title:new FormControl(null,{validators:[Validators.required, Validators.minLength(5)]}),
+      title:new FormControl(null,{validators:[Validators.required, Validators.minLength(3)]}),
       category:new FormControl(null,{validators:[Validators.required]}),
       description: new FormControl(null,{validators:[Validators.required,Validators.minLength(10)]}),
       price: new FormControl(null,{validators:[Validators.min(0)]}),
@@ -41,7 +41,7 @@ export class PostCreateAltComponent implements OnInit {
 
   HidePrice(){
     this.free=!this.free;
-    this.form.patchValue({price:999999})
+    this.form.patchValue({price:0})
     //this.form.controls['price'].disable();
   }
 
@@ -103,7 +103,7 @@ export class PostCreateAltComponent implements OnInit {
     this.httpService.AddPost(annonce);
     this.form.reset();
     this.urls = [];
-    // redirigier vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID
+    // rediriger vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID
   }
 
 }
