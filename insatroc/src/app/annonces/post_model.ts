@@ -6,5 +6,7 @@ export interface PostModel {
       price: number;
       description: string;
       urls: string[];
+      date: Date;
+      views: number;
 
 }
