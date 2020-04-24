@@ -68,7 +68,7 @@ app.post('/addPost', (req, res, next) => {
 	console.log("Category id : ",catID);
 	//enlever AnnounceID -> défini dans la DB
 	//dans la BD : clé primaire entière qui s'auto incrémente
-	var sql = "INSERT INTO Announce (AnnounceID, Title, Price, Description, CategoryID, PublicationDate) VALUES (id, req.body.title, req.body.price, req.body.description, catID, ??)
+	//var sql = "INSERT INTO Announce (AnnounceID, Title, Price, Description, CategoryID, PublicationDate) VALUES (id, req.body.title, req.body.price, req.body.description, catID, ??)
 	
 	id++;
 	
