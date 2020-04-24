@@ -33,6 +33,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConnectionComponent} from './connection/connection.component';
 import { CreateAccountComponent} from './create-account/create-account.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { PostViewerByIdComponent } from './annonces/post-viewer-by-id/post-viewer-by-id.component';
 
 
 
@@ -45,6 +46,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     PostCreateAltComponent,
     ConnectionComponent,
     CreateAccountComponent,
+    PostViewerByIdComponent,
   ],
   imports: [
     BrowserModule,

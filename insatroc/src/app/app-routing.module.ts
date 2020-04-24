@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PostCreateAltComponent } from './annonces/post-create-alt/post-create-alt.component';
 import { ConnectionComponent} from './connection/connection.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { PostViewerByIdComponent } from './annonces/post-viewer-by-id/post-viewer-by-id.component';
 
 const routes: Routes = [
   // {path: '', component: AppComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'toutes-les-annonces', component: PostViewerComponent},
   {path: 'connexion', component: ConnectionComponent},
   {path: 'creer-un-compte', component: CreateAccountComponent},
-  {path: '', component: HomepageComponent}
+  {path: '', component: HomepageComponent},
+  {path: 'annonce/:id', component: PostViewerByIdComponent}
 ];
 
 @NgModule({
