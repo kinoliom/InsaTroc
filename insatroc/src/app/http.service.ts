@@ -29,7 +29,7 @@ export class HttpService {
     this.http.post<{response:string}>('http://localhost:3000/addPost',post).subscribe(
       (response) => { console.log(response)},
       (error) => {console.log(error)},
-
+      // rediriger vers "/annonce/:id", id "étant l'ID de l'annonce qui est renvoyé par le serveur une fois qu'il l'a mise dans la DB"
 
       );
     console.log(this.posts.length);
