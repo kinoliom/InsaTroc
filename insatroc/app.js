@@ -1,29 +1,105 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const app = express();
-var corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200
+const bodyParser = require('body-parser'); //permet de formater les données en JSON
+var id=0;
+
+const category = {
+	"Chambre":1,
+	"Cuisine":2,
+	"Salle de bain":3,
+	"Bureau":4,
+	"Loisirs/Sport":5,
+	"Autre":6
 }
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
 
+function attributeID(category){
+	var categoryID;
+	
+	switch (category){		
+		case "Chambre":
+			categoryID = 1;
+		break;
+		
+		case "Cuisine":
+			categoryID = 2;
+		break;
+		
+		case "Salle de bain":
+			categoryID = 3;
+		break;
+		
+		case "Bureau":
+			categoryID = 4;
+		break;
+		
+		case "Loisirs/Sport":
+			categoryID = 5;
+		break;
+		
+		case "Autre":
+			categoryID = 6;
+		break;
+	}
+	return categoryID;
+}
 
-app.get('/', (req, res) => {
-    res.send('An alligator approaches!');
+const app = express();
+
+app.use((req, res, next) => { //header permettant de communiquer entre les deux serveurs
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
 });
-app.post('/addPost',(req,res) => {
-    console.log(req.body);
-    //To do : Extract the ''data'' from the req !
-    console.log('Got something !')
-    res.json({response:'InsaTroc is Alive !'})
+
+app.use(bodyParser.json());//formate en JSON les données pour n'importe quelle route
+
+app.post('/addPost', (req, res, next) => {
+	console.log(req.body);  //affiche les éléments de la requête
+	req.body._id = id;
+	
+	console.log("id : ",req.body._id); 
+	console.log("Title : ",req.body.title); 
+	console.log("Description : ",req.body.description); 
+	console.log("Category : ",req.body.category); 
+	console.log("Price : ",req.body.price); 
+	console.log("Urls : ",req.body.urls); 
+	
+	var catID = attributeID(req.body.category);
+	console.log("Category id : ",catID);
+	//enlever AnnounceID -> défini dans la DB
+	//dans la BD : clé primaire entière qui s'auto incrémente
+	//var sql = "INSERT INTO Announce (AnnounceID, Title, Price, Description, CategoryID, PublicationDate) VALUES (id, req.body.title, req.body.price, req.body.description, catID, ??)
+	
+	id++;
+	
+	res.status(201).json({  //statut "ressource créée"
+		message: 'objet créé'
+	});
+	
 });
 
-app.route('/post-viewer/:id').get((req, res) => {
-  console.log("requete id");
-  const postID = req.params['id'];
-  res.send({id: postID});
-})
+app.use((req, res) => { //header permettant de communiquer entre les deux serveurs
+  res.json({message:'coucou'});
+});
 
-app.listen(3000, () => console.log('Gator app listening on port 3000!'));
+
+/*
+app.use('/addPost', (req, res) => {
+  const annonce = [
+    {
+		_id: string,
+      title: string,
+      category: string,
+      price: number,
+      description: string,
+      urls : []
+    
+    },
+  ];
+  res.status(200).json(stuff);
+});*/
+
+
+
+
+module.exports = app;
