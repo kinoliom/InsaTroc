@@ -35,7 +35,7 @@ import { PostCreateReaComponent } from './annonces/post-create-rea/post-create-r
 import { ConnectionComponent} from './connection/connection.component';
 import { CreateAccountComponent} from './create-account/create-account.component';
 import {MatBadgeModule} from '@angular/material/badge';
-import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.component';
+import { PostViewerByIdComponent } from './annonces/post-viewer-by-id/post-viewer-by-id.component';
 
 
 
@@ -50,8 +50,7 @@ import { PostViewerV2Component } from './annonces/post-viewer-v2/post-viewer-v2.
     PostCreateReaComponent,
     ConnectionComponent,
     CreateAccountComponent,
-    PostCreateReaComponent,
-    PostViewerV2Component
+    PostViewerByIdComponent,
   ],
   imports: [
     BrowserModule,

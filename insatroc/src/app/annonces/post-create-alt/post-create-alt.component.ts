@@ -98,7 +98,9 @@ export class PostCreateAltComponent implements OnInit {
       description:this.form.value.description,
       category:this.form.value.category,
       price:this.form.value.price,
-      urls: this.urls
+      urls: this.urls,
+      date: new Date(),
+      views: 0
     }
     this.httpService.AddPost(annonce);
     this.form.reset();
