@@ -28,7 +28,7 @@
             <!-- Catégorie -->
             <mat-form-field class="Test1" appearance="outline">
               <mat-label>Catégorie</mat-label>
-              <mat-select matNativeControl name="category" required  formControlName="category" [(value)]="selected">
+              <mat-select matNativeControl name="category" required  formControlName="category" [(value)]="selected" multiple>
                 <mat-select-trigger>{{selected}}</mat-select-trigger>
                 <mat-option value="Chambre"><mat-icon>local_hotel</mat-icon>Chambre</mat-option>
                 <mat-option value="Cuisine"><mat-icon>restaurant</mat-icon>Cuisine</mat-option>
@@ -142,7 +142,7 @@
 
       <mat-card-actions>
         <div class="container">
-          <button mat-raised-button type="submit" color="warn">Sauvegarder l'annonce !</button>
+          <button mat-raised-button type="submit" color="warn" >Sauvegarder l'annonce !</button>
         </div>
       </mat-card-actions>
       <div>
