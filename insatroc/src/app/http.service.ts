@@ -22,14 +22,15 @@ export class HttpService {
     // return this.http.get('http://localhost:3000/post_viewer');
     return this.http.get('http://localhost:3000/post-viewer'+ 43);
   }
+
   AddPost(post:PostModel){
     //requete post http vers backend pour stocker post dans BD
     this.posts.push(post);
     this.http.post<{response:string}>('http://localhost:3000/addPost',post).subscribe(
       (response) => { console.log(response)},
       (error) => {console.log(error)},
-      
-      
+
+
       );
     console.log(this.posts.length);
   }

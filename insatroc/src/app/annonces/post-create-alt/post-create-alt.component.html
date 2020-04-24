@@ -8,7 +8,7 @@
 
   </mat-card-header>
   <form name="form" [formGroup]="form" (ngSubmit)="SavePost(form)">
-    <mat-horizontal-stepper [linear]="true" #stepper >
+    <mat-horizontal-stepper [linear]="false" #stepper >
       <!-- First step : Description de l'annonce -->
       <mat-step [stepControl]="form">
         <ng-template matStepLabel>Description de l'annonce</ng-template>
@@ -142,7 +142,7 @@
 
       <mat-card-actions>
         <div class="container">
-          <button mat-raised-button type="submit" color="warn" >Sauvegarder l'annonce !</button>
+          <button mat-raised-button type="submit" color="warn" [class.spinner]="loading" [disabled]="loading">Sauvegarder l'annonce !</button>
         </div>
       </mat-card-actions>
       <div>

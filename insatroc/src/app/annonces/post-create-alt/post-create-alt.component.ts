@@ -22,6 +22,7 @@ export class PostCreateAltComponent implements OnInit {
   urls = [];
   slideIndex = 0;
   selected = [];
+  loading = false;
 
 
   ngOnInit(): void {
@@ -92,6 +93,8 @@ export class PostCreateAltComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     const annonce : PostModel = {
       _id:null,
       title:this.form.value.title,
@@ -103,7 +106,7 @@ export class PostCreateAltComponent implements OnInit {
       views: 0
     }
     this.httpService.AddPost(annonce);
-    this.form.reset();
+    // this.form.reset();
     this.urls = [];
     // rediriger vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID
   }
