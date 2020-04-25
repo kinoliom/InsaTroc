@@ -4,6 +4,8 @@ import { PostModel } from '../post_model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {HttpService} from '../../http.service';
 import {imageValidator} from './home-made.validator';
+import {Router} from "@angular/router";
+
 
 
 @Component({
@@ -13,7 +15,7 @@ import {imageValidator} from './home-made.validator';
 })
 export class PostCreateAltComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, private _formBuilder: FormBuilder,public httpService:HttpService) { }
+  constructor(private _snackBar: MatSnackBar, private _formBuilder: FormBuilder,public httpService:HttpService,private router :Router) { }
   Announce : PostModel;
   Announces = [];
   free : Boolean = false;
@@ -109,6 +111,9 @@ export class PostCreateAltComponent implements OnInit {
     // this.form.reset();
     this.urls = [];
     // rediriger vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID
+    this.router.navigate(['']);
+    this._snackBar.open("Annonce ajoutée !","X");
+
   }
 
 }
