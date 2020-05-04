@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm, FormControl, Validators} from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
+import {HttpService } from '../http.service';
 
 @Component({
   selector: 'app-connection',
@@ -12,7 +13,7 @@ export class ConnectionComponent implements OnInit {
   password = new FormControl('', []);
   hide=true;
 
-  constructor() { }
+  constructor(public httpService:HttpService) { }
 
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
@@ -34,6 +35,7 @@ export class ConnectionComponent implements OnInit {
   }
 
   Login(form){
+    this.httpService.authenticate("name");
   }
 
   ngOnInit(): void {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {PostModel} from './annonces/post_model';
 import { Subject } from 'rxjs';
+import { stringify } from 'querystring';
 
 
 @Injectable({
@@ -48,6 +49,14 @@ export class HttpService {
     //requete get http vers backend pour récuperer les annonces depuis la BD
     return this.posts;
   }
+
+  authenticate(user: String){
+    this.http.post('http://localhost:3000/authenticate/', user).subscribe(
+      (response) => {console.log(response)},
+      (error) => {console.log(error)},
+    );
+  }
+
   onThemeUpdate(){
     return(this.themeUpdater.asObservable())
   }
