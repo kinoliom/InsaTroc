@@ -17,9 +17,8 @@ export class HomepageComponent implements OnInit {
     //   this.brews = data
     //   console.log(this.brews);
     // });
-    this._http.getBeer();
-    console.log(this._http.getBeer());
     console.log("blablabla homepage");
+    this._http.myMethod();
   }
 
 }

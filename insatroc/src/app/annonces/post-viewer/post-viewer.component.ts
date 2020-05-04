@@ -37,7 +37,7 @@ export class PostViewerComponent implements OnInit {
     console.log(this.Annonces)
     console.log(this.selected)
     console.log(this.maxprice)
-    this.Annoncesv2 = this.httpservice.GetPost();
+    this.Annoncesv2 = this.httpservice.getAllPosts();
     console.log(this.Annoncesv2);
   }
 

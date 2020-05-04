@@ -107,7 +107,7 @@ export class PostCreateAltComponent implements OnInit {
       date: new Date(),
       views: 0
     }
-    this.httpService.AddPost(annonce);
+    this.httpService.addPost(annonce);
     // this.form.reset();
     this.urls = [];
     // rediriger vers l'annonce quand on aura fait un composant pour voir une annonce selon l'ID

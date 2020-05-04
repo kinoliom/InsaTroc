@@ -13,28 +13,28 @@ const category = {
 
 function attributeID(category){
 	var categoryID;
-	
-	switch (category){		
+
+	switch (category){
 		case "Chambre":
 			categoryID = 1;
 		break;
-		
+
 		case "Cuisine":
 			categoryID = 2;
 		break;
-		
+
 		case "Salle de bain":
 			categoryID = 3;
 		break;
-		
+
 		case "Bureau":
 			categoryID = 4;
 		break;
-		
+
 		case "Loisirs/Sport":
 			categoryID = 5;
 		break;
-		
+
 		case "Autre":
 			categoryID = 6;
 		break;
@@ -56,27 +56,40 @@ app.use(bodyParser.json());//formate en JSON les données pour n'importe quelle 
 app.post('/addPost', (req, res, next) => {
 	console.log(req.body);  //affiche les éléments de la requête
 	req.body._id = id;
-	
-	console.log("id : ",req.body._id); 
-	console.log("Title : ",req.body.title); 
-	console.log("Description : ",req.body.description); 
-	console.log("Category : ",req.body.category); 
-	console.log("Price : ",req.body.price); 
-	console.log("Urls : ",req.body.urls); 
-	
+
+	console.log("id : ",req.body._id);
+	console.log("Title : ",req.body.title);
+	console.log("Description : ",req.body.description);
+	console.log("Category : ",req.body.category);
+	console.log("Price : ",req.body.price);
+	console.log("Urls : ",req.body.urls);
+
 	var catID = attributeID(req.body.category);
 	console.log("Category id : ",catID);
 	//enlever AnnounceID -> défini dans la DB
 	//dans la BD : clé primaire entière qui s'auto incrémente
 	//var sql = "INSERT INTO Announce (AnnounceID, Title, Price, Description, CategoryID, PublicationDate) VALUES (id, req.body.title, req.body.price, req.body.description, catID, ??)
-	
+
 	id++;
-	
+
 	res.status(201).json({  //statut "ressource créée"
 		message: 'objet créé'
 	});
-	
+
 });
+
+app.get('/getPost/:id', (req, res, next) => {
+  // const post = *get post in database*
+  // return res.json({post: post});
+  console.log(req.params);
+  console.log("id de l'annonce demandée : ", req.params.id);
+  res.json({message: 'voilà l\'annonce'});
+});
+
+app.get('/', (req, res, next) => {
+  console.log("localhost 3000");
+  res.json({message: 'localhost 3000'});
+})
 
 app.use((req, res) => { //header permettant de communiquer entre les deux serveurs
   res.json({message:'coucou'});
@@ -93,7 +106,7 @@ app.use('/addPost', (req, res) => {
       price: number,
       description: string,
       urls : []
-    
+
     },
   ];
   res.status(200).json(stuff);
